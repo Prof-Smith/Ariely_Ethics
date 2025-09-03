@@ -88,6 +88,13 @@ st.header("Poll Results")
 if not df.empty:
     st.bar_chart(df["Debate Opinion"].value_counts())
 
+st.download_button(
+    label="Download Responses CSV",
+    data=df.to_csv(index=False),
+    file_name="responses.csv",
+    mime="text/csv"
+)
+
 # Reset button
 if st.button("Reset Responses"):
     df = pd.DataFrame(columns=["Reflection", "Debate Opinion"])
@@ -101,10 +108,4 @@ st.markdown("""
 - Invite a guest speaker on research ethics or meta-science.
 """)
 
-st.download_button(
-    label="Download Responses CSV",
-    data=df.to_csv(index=False),
-    file_name="responses.csv",
-    mime="text/csv"
-)
 
