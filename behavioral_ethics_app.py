@@ -100,3 +100,11 @@ st.markdown("""
 - Introduce tools like pre-registration platforms.
 - Invite a guest speaker on research ethics or meta-science.
 """)
+
+st.download_button(
+    label="Download Responses CSV",
+    data=df.to_csv(index=False),
+    file_name="responses.csv",
+    mime="text/csv"
+)
+
